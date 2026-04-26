@@ -18,6 +18,19 @@ namespace CafeReserve
 
         private void LoadReservations()
         {
+
+            var pastReservations = _db.Reservations
+    .Where(r => r.Status == ReservationStatus.Active)
+    .ToList()
+    .Where(r => DateTime.Parse(r.ReservationDate.ToString("yyyy-MM-dd") + " " + r.ReservationTime.Replace(".", ":")) < DateTime.Now)
+    .ToList();
+
+            foreach (var r in pastReservations)
+                r.Status = ReservationStatus.Completed;
+
+            if (pastReservations.Any())
+                _db.SaveChanges();
+
             dgvReservations.DataSource = null;
 
             var displayList = _db.Reservations

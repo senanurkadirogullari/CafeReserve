@@ -19,6 +19,7 @@ namespace CafeReserve
 
         public ReservationForm(Reservation existingReservation) : this()
         {
+            this.Text = "Edit Reservation - CafeReserve";
             _editingReservationId = existingReservation.ReservationId;
 
             txtCustomerName.Text = existingReservation.Customer.Name;
@@ -39,6 +40,17 @@ namespace CafeReserve
             if (cmbTime.SelectedItem == null)
             {
                 MessageBox.Show("Please select a valid Time!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DateTime selectedDate = dtpDate.Value.Date;
+            string selectedTime = cmbTime.SelectedItem.ToString();
+            DateTime selectedDateTime = DateTime.Parse(selectedDate.ToString("yyyy-MM-dd") + " " + selectedTime.Replace(".", ":"));
+
+            if (selectedDateTime <= DateTime.Now)
+            {
+                MessageBox.Show("You cannot make a reservation for a past date or time!", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

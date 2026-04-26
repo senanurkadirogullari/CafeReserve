@@ -9,10 +9,24 @@ namespace CafeReserve
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "sena" && txtPassword.Text == "1234")
+            string enteredUsername = txtUsername.Text.Trim();
+            string enteredPassword = txtPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(enteredUsername) || string.IsNullOrWhiteSpace(enteredPassword))
+            {
+                MessageBox.Show("Please enter your username and password.", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using var db = new AppDbContext();
+            bool isValid = db.Users.Any(u =>
+                u.Username == enteredUsername &&
+                u.Password == enteredPassword);
+
+            if (isValid)
             {
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
                 this.Hide();
