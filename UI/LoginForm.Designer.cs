@@ -1,4 +1,4 @@
-﻿namespace CafeReserve
+﻿namespace CafeReserve.UI
 {
     partial class LoginForm
     {

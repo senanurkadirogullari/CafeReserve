@@ -1,4 +1,6 @@
-namespace CafeReserve
+using CafeReserve.Data;
+
+namespace CafeReserve.UI
 {
     public partial class LoginForm : Form
     {

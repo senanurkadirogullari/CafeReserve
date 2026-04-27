@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
+﻿using CafeReserve.Business;
 
-namespace CafeReserve
+namespace CafeReserve.UI
 {
     public partial class ReservationForm : Form
     {
@@ -67,7 +65,6 @@ namespace CafeReserve
 
             CreatedReservation.Status = ReservationStatus.Active;
 
-            CreatedReservation.EditingReservationId = _editingReservationId;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CafeReserve.Business;
+using Microsoft.EntityFrameworkCore;
 
-namespace CafeReserve
+namespace CafeReserve.Data
 {
     public class AppDbContext : DbContext
     {
@@ -20,7 +21,7 @@ namespace CafeReserve
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User { UserId = 1, Username = "admin", Password = "1234" }
+                new User { UserId = 1, Username = "sena", Password = "12345" }
             );
         }
     }

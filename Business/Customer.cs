@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CafeReserve
+﻿namespace CafeReserve.Business
 {
     public class Customer
     {

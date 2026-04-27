@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CafeReserve.Business;
+using CafeReserve.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace CafeReserve
+namespace CafeReserve.UI
 {
     public partial class MainForm : Form
     {

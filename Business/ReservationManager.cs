@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using CafeReserve.Data;
 
-namespace CafeReserve
+namespace CafeReserve.Business
 {
     public class ReservationManager
     {

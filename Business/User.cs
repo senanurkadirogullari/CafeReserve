@@ -1,4 +1,4 @@
-﻿namespace CafeReserve
+﻿namespace CafeReserve.Business
 {
     public class User
     {
