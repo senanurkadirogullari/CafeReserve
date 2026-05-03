@@ -21,6 +21,8 @@ namespace CafeReserve.UI
         private void LoadReservations()
         {
 
+            var allCustomers = _db.Customers.Include(c => c.Reservations).ToList();
+
             var pastReservations = _db.Reservations
     .Where(r => r.Status == ReservationStatus.Active)
     .ToList()
